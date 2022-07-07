@@ -8,5 +8,6 @@ UniversalPlatformType get currentUniversalPlatform {
   if(Platform.isMacOS) return UniversalPlatformType.MacOS;
   if(Platform.isLinux) return UniversalPlatformType.Linux;
   if(Platform.isIOS) return UniversalPlatformType.IOS;
-  return UniversalPlatformType.Android;
+  if (Platform.isAndroid) return UniversalPlatformType.Android;
+  return UniversalPlatformType.Unknown;
 }

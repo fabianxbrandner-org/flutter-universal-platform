@@ -15,6 +15,9 @@ abstract class UniversalPlatform {
   static bool get isIOS => currentUniversalPlatform == UniversalPlatformType.IOS;
   static bool get isFuchsia => currentUniversalPlatform == UniversalPlatformType.Fuchsia;
 
+  static bool get isDesktop => [UniversalPlatformType.Linux, UniversalPlatformType.Windows, UniversalPlatformType.MacOS, UniversalPlatformType.Fuchsia].contains(currentUniversalPlatform);
+  static bool get isMobile => [UniversalPlatformType.Android, UniversalPlatformType.IOS].contains(currentUniversalPlatform);
+
   static String get operatingSystem {
     switch (value) {
       case UniversalPlatformType.Web:
@@ -31,6 +34,8 @@ abstract class UniversalPlatform {
         return "ios";
       case UniversalPlatformType.Fuchsia:
         return "fuchsia";
+      default:
+        return "unknown";
     }
   }
 
@@ -43,5 +48,6 @@ enum UniversalPlatformType {
   MacOS,
   Android,
   Fuchsia,
-  IOS
+  IOS,
+  Unknown,
 }
